@@ -152,15 +152,6 @@ function draw() {
     square(40, height - 85, 45);
 }
 
-function setTitle(title) {
-    noStroke();
-    fill('#FFFFFF');
-    textFont(mainFont);
-    textAlign(LEFT, TOP);
-    textSize(30);
-    text(title, 50, 50);
-}
-
 function setTypoLogo() {
     content = input.value();
 }
@@ -358,12 +349,18 @@ function getLetterPattern(l, size, c1, c2, x, y) {
             triangle(0, 0, size / 2, 0, size / 2, size / 2);
             break;
         }
+        case '_': {
+            rect(-size / 2, 0, size, size / 2);
+            break;
+        }
+        case '-': {
+            rect(-size / 2, -size / 4, size, size / 2);
+            break;
+        }
+        case '!': {
+            rect(0, -size / 2, size / 2, size / 2);
+            rect(0, size / 4, size / 2, size / 4);
+        }
     }
     translate(-x, -y);
-}
-
-function getRandomInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max) + 1;
-    return Math.floor(Math.random() * (max - min)) + min; //최댓값은 제외, 최솟값은 포함
 }
